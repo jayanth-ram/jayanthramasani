@@ -112,14 +112,10 @@ body {
 
 /* About */
 .about-photo img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 32px -12px var(--accent2);
-}
-.about-text {
-  flex: 1;
+  width: 300px;   /* bigger size */
+  height: 300px;  /* keeps it square */
+  object-fit: cover; /* crops nicely if photo isn’t square */
+  border-radius: 8px; /* small rounded corners (remove if you want sharp square) */
 }
 .about-text p {
   font-size: 1.1rem;

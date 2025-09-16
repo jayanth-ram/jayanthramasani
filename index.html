@@ -122,21 +122,110 @@
   </div>
 </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <h3>Contact</h3>
-    <form class="contact-form aos">
-      <input type="text" name="name" placeholder="Name" required/>
-      <input type="email" name="email" placeholder="Email" required/>
-      <textarea name="message" placeholder="Message" required></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
-    <div class="social aos">
-      <a href="https://linkedin.com/in/jayanth-ram" target="_blank"><img src="icons/linkedin.svg" alt="LinkedIn"/></a>
-      <a href="https://github.com/jayanth-ram" target="_blank"><img src="icons/github.svg" alt="GitHub"/></a>
-    </div>
-  </section>
+  <!-- Contact Section (2-card layout) -->
+<section id="contact" class="contact section">
+  <h3>Contact</h3>
 
+  <div class="contact-grid aos">
+    <!-- Card 1: Email -->
+    <div class="contact-card">
+      <h4>Email Me</h4>
+      <p>Shoot me an email, I’ll get back to you asap.</p>
+
+      <a class="pill" href="mailto:jayanth.ramasani@gmail.com" id="emailPill">
+        jayanth.ramasani@gmail.com
+      </a>
+      <button class="pill-btn" aria-label="Copy email" data-copy="#emailPill">Copy</button>
+    </div>
+
+    <!-- Card 2: LinkedIn -->
+    <div class="contact-card">
+      <h4>Connect on LinkedIn</h4>
+      <p>Let’s connect and share valuable insights.</p>
+
+      <a class="pill" href="https://www.linkedin.com/in/jayanth-ramasani"
+         target="_blank" rel="noopener" id="liPill">
+        linkedin.com/in/jayanth-ramasani
+      </a>
+      <button class="pill-btn" aria-label="Copy LinkedIn URL" data-copy="#liPill">Copy</button>
+    </div>
+  </div>
+</section>
+
+<!-- Minimal styles for the 2-card layout -->
+<style>
+  .contact.section { padding: 64px 0; }
+  .contact h3 { text-align: center; margin-bottom: 28px; }
+
+  .contact-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: repeat(2, 1fr); } /* two cards on desktop */
+  }
+
+  .contact-card {
+    background: #121212; /* dark card */
+    color: #eaeaea;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+  .contact-card h4 {
+    margin: 4px 0 8px;
+    font-size: 1.25rem;
+  }
+  .contact-card p {
+    opacity: 0.85;
+    margin: 0 0 16px;
+  }
+
+  /* pill link + copy button */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #111;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    min-height: 44px;
+    min-width: 260px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+  .pill-btn {
+    margin-left: 10px;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #eaeaea;
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+  .pill-btn:hover { background: #1b1b1b; }
+</style>
+
+<!-- Tiny JS: copy pill text -->
+<script>
+  document.querySelectorAll('.pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sel = btn.getAttribute('data-copy');
+      const el = document.querySelector(sel);
+      if (!el) return;
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = old, 1200);
+      });
+    });
+  });
+</script>
   <!-- Back to Top Button -->
   <button id="back-to-top" title="Back to top">&#8679;</button>
 

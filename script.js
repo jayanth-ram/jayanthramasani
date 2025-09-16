@@ -1,5 +1,5 @@
 // Animated typing effect for landing section
-const roles = ["Data Engineer", "Python Enthusiast", "Cloud Architect"];
+const roles = ["Python Developer", "AI & ML Engineer", "Generative AI Builder"];
 let index = 0, charIndex = 0, typing = true;
 const typedText = document.querySelector('.typed-text');
 

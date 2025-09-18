@@ -1,4 +1,4 @@
-# Jayanth Ram Portfolio
+# Jayanth Ramasani  Portfolio
 
 A modern, fully responsive personal portfolio website built with HTML, CSS, and JavaScript.
 
